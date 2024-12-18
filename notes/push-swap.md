@@ -68,7 +68,9 @@ what we want:
 	}
 }
 
-- [ ] FIX SSH KEYS FOR VPS AND INTRE
+- [ ] FIX SSH KEYS FOR:
+	- [ ] VPS 
+	- [x] INTRA
 
 
 
