@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
   t_stack *stack_a;
   t_stack *stack_b;
 
-  let stack_a = malloc(sizeof(t_stack)); // malloc returns a pointer to the allocated memory 
+  let args_string  = ft_strjoin("")
     
   return 0;
 }
