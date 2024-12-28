@@ -1,31 +1,31 @@
 #include "../include/push_swap.h"
 
+// 1. joins the arguments into a single string
+// - [ ] edge cases / error handling
+
+// 2. parses the arguments into numerical values
+
+// 3. returns a stack with teh numbers which is put into stack_a
+//
 t_stack *parse(char *argv)
 {
   t_stack *parsed_stack_a;
   char *nums_string;
 
+  char *args_string = join_args(argv);
+
+  int nums[]= parse_nums(args_string);
   parsed_stack_a =  malloc(sizeof(t_stack));
-  nums_string= parse_nums(&argv, parsed_stack_a);
-  if (!nums_string)
-  {
-    printf("Error\n");
-    exit(1);
-  }
 
 
 
   return parsed_stack_a;
 }
 
-// joins the arguments into a single string ->
-// then parses them isong atol 
-char *parse_nums(char* argv[], t_stack *stack_a)
+// parses the numebrs string example " 4 42 -3 5" into an array of numbers
+char *parse_nums(char *args_string)
 {
-  char *args_string = join_args(argv);
-
-  if (!args_string)
-    return NULL;
+  long *return_nums;
   int i = 0;
 
   while (args_string[i])
