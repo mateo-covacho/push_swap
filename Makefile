@@ -5,6 +5,7 @@ CFLAGS = -Iinclude -Ilibft
 
 SRC = src/push_swap.c \
 			parse/parse.c \
+			utils/utils.c \
 			$(wildcard libft/*.c)  
 
 OBJ = $(SRC:.c=.o)

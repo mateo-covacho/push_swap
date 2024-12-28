@@ -84,3 +84,13 @@ Añadir al task list l o primero la estructura básica y pseudocodigo
  **
 
 HACER LA ESTRUCTURA INICIAL ANTES DE NADA 
+
+
+
+# fix the c language server 
+
+mason is calling teh clangd executable at 
+
+~/.local/share/nvim/mason/packages/clangd/clangd_19.1.2/bin/clangd
+
+link it to the one at  <mark style="background: #24db67;">echo $CLANG_TOOLS_PATH</mark> and see if works

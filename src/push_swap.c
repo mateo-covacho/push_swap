@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -8,11 +8,12 @@ int main(int argc, char *argv[])
   t_stack *stack_a;
   t_stack *stack_b;
 
-  char* nums_string = parse_nums(argv, stack_a);
-  
-  printf("nums_string: \"%s\" \n" , nums_string);
+  stack_b = NULL;
+  stack_a = parse(argv);
 
-  print_stacks(stack_a, stack_b);
+  
+  /* printf("nums_string: \"%s\" \n" , nums_string); */
+
   return 0;
 }
 
