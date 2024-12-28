@@ -10,11 +10,10 @@
 t_stack *parse(char *argv)
 {
   t_stack *parsed_stack_a;
-  char *nums_string;
 
-  char *args_string = join_args(argv);
+  char *args_string = join_args(&argv);
 
-  int nums[]= parse_nums(args_string);
+  int *nums= parse_nums(args_string);
   parsed_stack_a =  malloc(sizeof(t_stack));
 
 
@@ -23,40 +22,51 @@ t_stack *parse(char *argv)
 }
 
 // parses the numebrs string example " 4 42 -3 5" into an array of numbers
-char *parse_nums(char *args_string)
+int *parse_nums(char *nums_string)
 {
   long *return_nums;
   int i = 0;
 
-  while (args_string[i])
+  while (nums_string[i])
   {
     // "3 52 2"
     //  |
-    if (!ft_isdigit(args_string[i]) && args_string[i] != ' ' && args_string[i] != '-')
+    if (!ft_isdigit(nums_string[i]) && nums_string[i] != ' ' && nums_string[i] != '-')
     {
-      free(args_string);
+      free(nums_string);
       return NULL;
     }
     i++;
   }
 
-  return args_string;
+  return nums_string;
 }
 
 
-char *join_args(char* argv[])
+char *join_args(char *argv[])
 {
-  char *args_string = malloc(100);
+  char *args_string;
+  char *temp;
+  size_t total_len;
+  int i;
+
+  total_len = 0;
+  i = 1;
+  while (argv[i])
+  {
+    total_len += ft_strlen(argv[i]) + 1;
+    i++;
+  }
+  args_string = ft_calloc(total_len + 1, sizeof(char));
   if (!args_string)
-    return NULL;
-  int i = 1;
+    return (NULL);
+  i = 1;
   while (argv[i])
   {
     if (i != 1)
-      args_string = ft_strjoin(args_string, " ");
-    args_string = ft_strjoin(args_string, argv[i]);
+      ft_strlcat(args_string, " ", total_len + 1);
+    ft_strlcat(args_string, argv[i], total_len + 1);
     i++;
   }
-  args_string = ft_strjoin(args_string, "\0");
-  return args_string;
+  return (args_string);
 }

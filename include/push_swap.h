@@ -20,8 +20,9 @@ typedef struct s_stack {
 
 int main(int argc, char *argv[]);
 int push_swap(int argc, char *argv[]);
-char *parse_nums(char *args_string);
+int *parse_nums(char *nums_string);
 char *join_args(char *argv[]);
 void print_stacks(t_stack *stack_a, t_stack *stack_b);
 void print_stack(t_stack *stack);
 t_stack *parse(char *argv);
+
